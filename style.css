@@ -1,0 +1,224 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+body,
+.platform,
+.character,
+.start-game button
+{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body
+{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('sunset_Vector.svg');
+}
+
+.screen
+{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    height: 100%;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent 60%);
+    background-image: -o-linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent 60%);
+}
+
+.platform
+{
+    position: absolute;
+    left: 0;
+    opacity: .9;
+}
+
+.platform:nth-child(3n+1)
+{
+    background-image: url('platform.svg'); 
+}
+.platform:nth-child(3n+2)
+{
+    background-image: url('platform2.svg'); 
+}
+.platform:nth-child(3n+3)
+{
+    background-image: url('platform3.svg'); 
+}
+
+.character
+{
+    position: absolute;
+    z-index: 1;
+    background-size: 100%;
+    background-image: url('little_elephant.svg');
+}
+
+.character.hiding
+{
+    transition: all 1s linear;
+}
+
+.game-area
+{
+    position: relative;
+    width: auto;
+    height: 100%;
+    overflow: hidden;
+}
+
+.scoreboard
+{
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: auto;
+    height: auto;
+    
+    padding: 10px 0;
+    font-size: 26px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    background-image: linear-gradient(10deg, rgb(254, 218, 95) 10%, rgb(235, 110, 0));
+}
+
+.scoreboard::after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .9;
+
+    background-image: url("ps-neutral.png");
+}
+
+.scoreboard div
+{
+    margin-bottom: 10px;
+}
+.scoreboard div:last-child
+{
+    margin-bottom: 0;
+}
+
+.scoreboard i
+{
+    font-size: 1.2em;
+    font-style: normal;
+    margin-left: 20px;
+}
+
+.scoreboard .score i
+{
+    color: rgb(252, 43, 74);
+}
+.scoreboard .time i
+{
+    color: rgb(37, 212, 255);
+}
+
+.copyright
+{
+    font-size: .9em;
+    padding: 10px 0;
+    text-align: center;
+    color: rgba(255, 255, 255, .4);
+}
+.copyright a
+{
+    font-weight: bold;
+    color: currentColor;
+}
+.copyright a:hover
+{
+    text-decoration: underline; 
+}
+
+.start-game
+{
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    height: 100%;
+    opacity: 0;
+    transform: scale(1.8);
+    transition: all 200ms ease-in-out;
+}
+.start-game.show
+{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.start-game h1
+{
+    color: rgb(255, 255, 255);
+    font-size: 2.5em;
+    text-transform: uppercase;
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.start-game button
+{
+    position: relative;
+    border: 0;
+    width: 100px;
+    height: 100px;
+    padding: 25px;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: rgb(0, 157, 62);
+}
+
+.start-game button::after
+{
+    content: '';
+    z-index: 1;
+    position: absolute;
+    top: -31px;
+    left: -31px;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: rgba(255, 255, 255, .4);
+}
+
+.start-game button svg
+{
+    width: 100%;
+    height: 100%;
+    fill: rgba(255, 255, 255, .8);
+}
+
+.game-area:empty
+{
+    display: none;
+}
+.game-area:empty ~ .start-game
+{
+    display: flex;
+}
